@@ -19,5 +19,4 @@ trigger Assign512 on Role__c (after insert) {
     if (permissionsToCreate.size() > 0) {
         insert permissionsToCreate;
     }
-    
 }

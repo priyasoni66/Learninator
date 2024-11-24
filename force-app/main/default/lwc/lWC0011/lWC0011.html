@@ -1,0 +1,36 @@
+<template>
+    <lightning-card variant="narrow" title="Product Details"> 
+    <div style="margin-left:20px; margin-right:20px">
+        <label for="category">Select Category: </label>
+        <select id="category" onchange={handleCategoryChange}>
+            <option value="All">All</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Groceries">Groceries</option>
+        </select>
+    </div>
+    <br>
+    <div style="margin-left:20px; margin-right:20px">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={productData} for:item="product">
+                <tr key={product.name}>
+                    <td>{product.name}</td>
+                    <td>{product.category}</td>
+                    <td>{product.price}</td>
+                    <td>{product.availabilityText}</td> 
+                </tr>
+            </template>
+        </tbody>
+    </table>
+    </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+        <lightning-card  variant="Narrow"  title={titleStr} icon-name="standard:account">
+            <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+            <div class="slds-p-horizontal_small">
+                First Name: {firstName}<br>
+                Last Name: {lastName}<br>
+                Email: <span if:true={hideEmail}>{email}</span> 
+            </div>
+            <div slot="footer">
+                <lightning-button variant="brand" label={showAddress} title="Show Address" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="destructive" label={showPhone} title="Show Phone" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="success" label="Hide Email" title="Hide Email" onclick={toggleHideEmail} class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </lightning-card>
+</template>

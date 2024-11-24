@@ -1,0 +1,18 @@
+<template>
+    <lightning-card variant="Narrow" title="Hello" icon-name="standard:account">
+        <div>
+            First Name List
+        <template for:each={firstNames} for:item = "firstName">
+            <li key={firstName}>{firstName}</li>
+        </template>
+        Last Name List
+        <template for:each={lastNames} for:item = "lastName">
+            <li key={lastName}>{lastName}</li>
+        </template>
+        Full Name List
+        <template for:each={names} for:item = "fullName">
+            <li key={fullName}>{fullName}</li>
+        </template>
+        </div>
+    </lightning-card>
+</template>

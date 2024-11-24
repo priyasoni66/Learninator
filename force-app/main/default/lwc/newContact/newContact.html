@@ -1,0 +1,220 @@
+<template>
+    <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none"
+        style="background-color: white;">
+<p class="slds-p-horizontal_small" style="text-align: center; font-size: 24px; margin-top: 20px;">
+    <b>New Contact</b>
+</p>
+
+        <hr style="height: 2px; background-color: grey; border: none; margin: 20px 0;">
+
+
+        <p class="slds-p-horizontal_small" style="text-align: right; margin-bottom: 20px;">* = Required Information</p>
+        <div style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px;">
+    <p class="slds-p-horizontal_small" style="margin: 0; font-size: 18px"><b>Contact Information</b></p>
+</div>
+
+
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+
+                <p class="slds-p-horizontal_small">Contact Owner</p>
+                <p class="slds-p-horizontal_small">Priya Soni</p>
+
+                <p class="slds-p-horizontal_small"><b>* Name</b></p>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+
+                    <lightning-combobox name="Salutation" label="Salutation" placeholder="--None--"
+                        value={selectedValue} options={Salutations} onchange={handleChange}>
+                    </lightning-combobox>
+
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-input type="text" placeholder="First Name" label="First Name"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-input type="text" placeholder="Last Name" label="* Last Name"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-input type="search" label="Account Name" placeholder="Search Accounts..."
+                        icon-name="utility:search" onchange={handleSearch}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-input type="text" label="Title"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Department"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="date" label="Birthdate"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="search" label="Report To" placeholder="Search Contacts..."
+                        icon-name="utility:search" onchange={handleSearch}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-combobox name="Lead Source" label="Lead Source" placeholder="--None--"
+                        value={selectedValue} options={leadSources} onchange={handleChange}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Status"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Usage"></lightning-input>
+                </lightning-layout-item>
+
+
+
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-input type="text" label="Phone"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <lightning-input type="text" label="Mobile"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-input type="text" label="Email"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Assistant"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Asst. Phone"></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+        <div style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px;">
+    <p class="slds-p-horizontal_small" style="margin: 0; font-size: 18px"><b>Address Information</b></p>
+</div>
+
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <p class="slds-p-horizontal_small">Mailing Address</p>
+                    <lightning-textarea label="Mailing Street" onchange={handleInputChange}>
+                    </lightning-textarea>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+
+                    <lightning-input type="text" label="Mailing City"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="9">
+
+                    <lightning-input type="text" label="Mailing Zip/Postal Code"></lightning-input>
+                </lightning-layout-item>
+            
+                <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+
+                    <lightning-input type="text" label="Mailing State/Province"></lightning-input>
+                </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+
+                    <lightning-input type="text" label="Mailing Country"></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout-item>
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <p class="slds-p-horizontal_small">Other Address</p>
+                    <lightning-textarea label="Mailing Street" onchange={handleInputChange}>
+                    </lightning-textarea>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+
+                    <lightning-input type="text" label="Other City"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="9">
+
+                    <lightning-input type="text" label="Other Zip/Postal Code"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="3">
+
+                    <lightning-input type="text" label="Other State/Province"></lightning-input>
+                </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+
+                    <lightning-input type="text" label="Other Country"></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout-item>
+
+        </lightning-layout>
+        <div style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px;">
+    <p class="slds-p-horizontal_small" style="margin: 0; font-size: 18px"><b>Additional Information</b></p>
+</div>
+
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                <lightning-input type="text" label="Languages"></lightning-input>
+
+            </lightning-layout-item>
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+
+                <lightning-combobox name="level" label="Level" placeholder="--None--" value={selectedValue}
+                    options={levelOptions} onchange={handleChange}>
+                </lightning-combobox>
+            </lightning-layout-item>
+
+
+
+
+        </lightning-layout>
+        <div style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px;">
+    <p class="slds-p-horizontal_small" style="margin: 0; font-size: 18px"><b>System Information</b></p>
+</div>
+        <lightning-layout>
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <p class="slds-p-horizontal_small">Created By</br></p>
+
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+
+                <p class="slds-p-horizontal_small">Last Modified By</br></p>
+            </lightning-layout-item>
+
+
+
+
+        </lightning-layout>
+
+        <div style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px; margin-top:20px">
+    <p class="slds-p-horizontal_small" style="margin:0 ; font-size: 18px"><b>Description Information</b></p>
+</div>
+
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+
+                <lightning-textarea label="Description" onchange={handleInputChange}>
+                </lightning-textarea>
+
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+
+    </div>
+</template>

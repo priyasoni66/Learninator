@@ -1,0 +1,51 @@
+<template> 
+    <lightning-card variant="narrow" title="Employee Details"> 
+        <div style="margin-left:20px; margin-right:20px">
+            <label for="department">Select Department: </label>
+            <select id="department" aria-label="Department Selection" onchange={handleDepartmentChange}>
+                <option value="All">All</option>
+                <option value="HR">HR</option>
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+        </div><br>
+
+        <div style="margin-left:20px; margin-right:20px">
+
+        <label for="search">Search by Employee Name: </label>
+        <input type="text" id="search" oninput={handleSearchInput} placeholder="Enter Employee name">
+    </div><br>
+    
+        <div style="margin-left:20px; margin-right:20px">
+            <label for="role">Select Role: </label>
+            <select id="role" aria-label="Role Selection" onchange={handleRoleChange}>
+                <option value="All">All</option>                      
+                <option value="Manager">Manager</option>
+                <option value="Developer">Developer</option>
+                <option value="Designer">Designer</option>
+            </select>
+        </div><br>
+        <div style="margin-left:20px; margin-right:20px">
+            <table border="1" style="width:100%; text-align:left; border-collapse:collapse">
+                <thead>
+                    <tr>
+                        <th style="padding:8px; border:1px solid #ddd;">Employee Name</th>
+                        <th style="padding:8px; border:1px solid #ddd;">Department</th>
+                        <th style="padding:8px; border:1px solid #ddd;">Role</th>
+                        <th style="padding:8px; border:1px solid #ddd;">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={employeesData} for:item="employee">
+                        <tr key={employee.email}>
+                            <td style="padding:8px; border:1px solid #ddd;">{employee.name}</td>
+                            <td style="padding:8px; border:1px solid #ddd;">{employee.department}</td>
+                            <td style="padding:8px; border:1px solid #ddd;">{employee.role}</td>
+                            <td style="padding:8px; border:1px solid #ddd;">{employee.email}</td> 
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

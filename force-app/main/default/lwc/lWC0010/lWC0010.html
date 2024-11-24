@@ -1,0 +1,31 @@
+<template>
+    <lightning-card variant="Narrow"  title={titleStr} icon-name="standard:account">
+        <div style= "margin-left: 20px">
+        <label for="category">Filter by Category:</label>
+        <select id="category" onchange={handleCategoryChange}>
+            <option value="All">All</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Groceries">Groceries</option>
+        </select>
+    </div>
+
+    <div style= "margin-left: 20px">
+        <h2>Product List</h2>
+        <template if:true={productData.length}>
+            <ul>
+                <template for:each={productData} for:item="product">
+                    <li key={product.name}>
+                        Name: <strong>{product.name}</strong><br> Category: {product.category}<br> Price: {product.price}
+                        <span if:true={product.availability} > (In Stock)</span>
+                        <span if:false={product.availability}> (Out of Stock)</span>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={productData.length}>
+            <p>No products available for the selected category.</p>
+        </template>
+        </div>
+    </lightning-card>
+</template>
