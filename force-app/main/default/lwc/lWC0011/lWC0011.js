@@ -17,13 +17,23 @@ export default class LWC0010 extends LightningElement {
     }
 
     get productData() {
-        let filtered = this.selectedCategory === 'All' 
-            ? this.products 
-            : this.products.filter((product) => product.category === this.selectedCategory);
-        
-        return filtered.map(product => ({
-            ...product,
-            availabilityText: product.availability ? 'In Stock' : 'Out of Stock'
-        }));
+        let filteredProducts;
+    
+        if (this.selectedCategory === 'All') {
+            filteredProducts = this.products;
+        } else {
+            filteredProducts = this.products.filter(product => product.category === this.selectedCategory);
+        }
+    
+        return filteredProducts.map(product => {
+            return {
+                id: product.id,
+                name: product.name,
+                category: product.category,
+                price: product.price,
+                availability: product.availability,
+                availabilityText: product.availability ? 'In Stock' : 'Out of Stock'
+            };
+        });
     }
 }

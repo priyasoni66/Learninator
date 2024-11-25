@@ -11,34 +11,44 @@ export default class LWC0014 extends LightningElement {
     ];
 
     @track selectedCategory = 'All';
-    @track searchQuery = ''; 
+    @track searchQuery = '';
 
     handleCategoryChange(event) {
         this.selectedCategory = event.target.value;
     }
 
     handleSearchInput(event) {
-        this.searchQuery = event.target.value; 
+        this.searchQuery = event.target.value;
     }
 
-    get filteredProducts() {
-        let filtered = this.selectedCategory === 'All' 
-            ? this.products 
-            : this.products.filter((product) => product.category === this.selectedCategory);
+    get productData() {
+        let filteredProducts = this.products;
+
+        if (this.selectedCategory !== 'All') {
+            filteredProducts = filteredProducts.filter(
+                (product) => product.category === this.selectedCategory
+            );
+        }
 
         if (this.searchQuery) {
-            filtered = filtered.filter((product) => 
+            filteredProducts = filteredProducts.filter((product) =>
                 product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
             );
         }
 
-        
-        return filtered.map(product => ({
-            ...product,
-            availabilityText: product.availability ? 'In Stock' : 'Out of Stock'
-        }));
+        return filteredProducts.map(product => {
+            return {
+                id: product.id,
+                name: product.name,
+                category: product.category,
+                price: product.price,
+                availability: product.availability,
+                availabilityText: product.availability ? 'In Stock' : 'Out of Stock'
+            };
+        });
     }
-        get totalProducts() {
-        return this.filteredProducts.length;
+
+    get totalProducts() {
+        return this.productData.length; 
     }
 }
