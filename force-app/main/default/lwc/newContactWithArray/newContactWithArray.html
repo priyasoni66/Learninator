@@ -1,0 +1,121 @@
+<template>
+    <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none"
+        style="background-color: white;">
+        <p class="slds-text-heading_medium slds-align_absolute-center">Contacts</p>
+
+        <template for:each={contacts} for:item="contact">
+            <div key={contact.id} class="slds-box slds-m-bottom_medium">
+                <div style="background-color: #DEEFF5; padding: 10px;">
+                    <p class="slds-text-heading_small">Contact Information {contact.id}</p>
+                </div>
+
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="firstName"
+                            data-id={contact.id}
+                            label="First Name"
+                            value={contact.firstName}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="lastName"
+                            data-id={contact.id}
+                            label="Last Name"
+                            value={contact.lastName}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="email"
+                            data-id={contact.id}
+                            label="Email"
+                            value={contact.email}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="title"
+                            data-id={contact.id}
+                            label="Title"
+                            value={contact.title}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="department"
+                            data-id={contact.id}
+                            label="Department"
+                            value={contact.department}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="usage"
+                            data-id={contact.id}
+                            label="Usage"
+                            value={contact.usage}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="phone"
+                            data-id={contact.id}
+                            label="Phone"
+                            value={contact.phone}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="mobile"
+                            data-id={contact.id}
+                            label="Mobile"
+                            value={contact.mobile}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="assistant"
+                            data-id={contact.id}
+                            label="Assistant"
+                            value={contact.assistant}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size = "6">
+                        <lightning-input
+                            name="assistantPhone"
+                            data-id={contact.id}
+                            label="Assistant Phone"
+                            value={contact.assistantPhone}
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                </lightning-layout>
+            </div>
+        </template>
+
+        <lightning-button
+            label="Sort Contacts by Name"
+            onclick={sortContacts}
+            class="slds-m-top_medium">
+        </lightning-button>
+    </div>
+</template>

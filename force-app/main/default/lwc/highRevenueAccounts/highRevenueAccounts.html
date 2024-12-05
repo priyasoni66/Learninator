@@ -1,0 +1,17 @@
+<!--
+  @author            : Priya Soni
+  @last modified on  : 12-03-2024
+  @last modified by  : Priya Soni
+-->
+<template>
+    <lightning-card>
+        <lightning-input label="Number of Records" title="Number Of Records" type="number" onkeyup={setCount}></lightning-input>
+    </lightning-card>
+    <lightning-card>
+        <template for:each={accountsToDisplay} for:item="account">
+            <div key={account.Id}>
+                {account.Name} - {account.AnnualRevenue}
+            </div>
+        </template>
+    </lightning-card>
+</template>

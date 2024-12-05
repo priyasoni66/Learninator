@@ -1,0 +1,23 @@
+<template>
+    <lightning-card>
+        <div class="toggle-container" style="margin-left:20px">
+            <div>
+            <lightning-input type="checkbox" label="Show Numbers Only" checked={showNumbers}
+                             onchange={handleToggleChange}></lightning-input>
+        </div>
+        <template if:true={showNumbers}>
+            <h3>Numbers:</h3>
+            <template for:each={filteredData} for:item="item">
+                <div key={item.value}>{item.value}</div>
+            </template>
+            <div>Total Sum: {totalSum}</div>
+        </template>
+        <template if:false={showNumbers}>
+            <h3>Strings:</h3>
+            <template for:each={filteredData} for:item="item">
+                <div key={item.value}>{item.value}</div>
+            </template>
+        </template>
+        </div>
+    </lightning-card>
+</template>

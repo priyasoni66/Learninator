@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="File Upload" icon-name="custom:custom63">
+        <div class="slds-p-horizontal_medium">
+            <lightning-input label="Contact ID" value={contactId} onchange={handleContactIdChange}></lightning-input>
+            <lightning-file-upload label="Upload File" name="fileUploader" 
+                accept=".jpg,.jpeg,.png,.pdf,.txt" 
+                onuploadfinished={handleUploadFinished}>
+            </lightning-file-upload>
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error">{errorMessage}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

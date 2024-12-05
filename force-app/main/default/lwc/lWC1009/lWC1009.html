@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Filter Opportunities by Date Range" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+            <template if:false={isDateRangeValid}>
+                <p class="slds-text-body_small">Please select a start and end date to filter opportunities.</p>
+            </template>
+            <lightning-input type="date" label="Start Date" value={startDate} onchange={handleStartDateChange}></lightning-input>
+            <lightning-input type="date" label="End Date" value={endDate} onchange={handleEndDateChange}></lightning-input>
+        </div>
+        <template if:true={isDateRangeValid}>
+            <template if:true={opportunities.data}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={opportunities.data}
+                    columns={columns}>
+                </lightning-datatable>
+            </template>
+            <template if:true={opportunities.error}>
+                <p class="slds-text-color_error">Error: {opportunities.error}</p>
+            </template>
+            <template if:false={opportunities.data}>
+                <p class="slds-text-body_small">No opportunities found for the selected date range.</p>
+            </template>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,32 @@
+<template>
+    <lightning-card>
+        <div style="margin-left:20px; margin-right:20px">
+            <h1>Assignment LWC0071<br>{projectData.project}</h1>
+            <template if:true={projectData.tasks}>
+
+                <div class="slds-m-top_medium">
+                    <lightning-input label="Task Name" value={newTask.name} onchange={handleInputChange} data-id="name">
+                    </lightning-input>
+                    <lightning-input label="Assignees (comma-separated)" value={newTask.assignees}
+                        onchange={handleInputChange} data-id="assignees"></lightning-input>
+                    <lightning-combobox label="Status" value={newTask.status} options={statusOptions}
+                        onchange={handleInputChange} data-id="status"></lightning-combobox>
+                    <lightning-button label="Add Task" variant="brand" class="slds-m-top_small" onclick={addTask}>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <div class="slds-m-top_medium">
+                <template if:true={projectData.tasks}>
+                    <template for:each={projectData.tasks} for:item="task">
+                        <div key={task.id} class="slds-box slds-m-bottom_small">
+                            <p><strong>Task:</strong> {task.name}</p>
+                            <p><strong>Assignees:</strong> {task.assignees}</p>
+                            <p><strong>Status:</strong> {task.status}</p>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

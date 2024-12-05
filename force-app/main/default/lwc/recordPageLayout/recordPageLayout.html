@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Contact List View" icon-name="standard:contact">
+        <div slot="actions" class="slds-text-align_right">
+            <lightning-button label="Add New" onclick={handleAddNew} variant="brand"></lightning-button>
+            <lightning-button label="Delete Selected" onclick={handleDeleteSelected} variant="destructive"
+                disabled={isDeleteDisabled}>
+            </lightning-button>
+        </div>
+        <div class="slds-class__body_inner">
+            <template if:true={contacts.data.length}>
+                <lightning-datatable key-field="Id" data={contacts.data} show-row-number-column columns={columns}
+                    selected-rows={selectedRows} onrowselection={handleRowSelection}></lightning-datatable>
+                <div>
+                    <lightning-button label="Previous" onclick={handlePrevious} disabled={isPreviousDisabled}>
+                    </lightning-button>
+                    <lightning-button label="Next" onclick={handleNext} disabled={isNextDisabled}></lightning-button>
+                </div>
+            </template>
+            <template if:false={contacts.data.length}>
+                <p class="slds-text-heading_small">No Contacts Found.</p>
+            </template>
+            <template if:true={contacts.error}>
+                <p class="slds-text-color_error">{contacts.error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

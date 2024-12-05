@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <div style="margin-left:20px; margin-right:20px">
+            <template if:true={tasks}>
+                <ul>
+                    <template for:each={tasks} for:item="task">
+                        <li key={task.Id} style={task.style}>
+                            <span>{task.Id}</span> -
+                            <span>{task.Subject}</span> -
+                            <span>{task.Status}</span>
+                            <input type="checkbox" data-id={task.Id} checked={task.isCompleted} onchange={handleStatusChange} />
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

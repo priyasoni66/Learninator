@@ -1,0 +1,76 @@
+<template>
+    <lightning-card title="Account Details" icon-name="standard:account">
+        <div style="margin: 20px;">
+            <table border="1" style="width: 100%; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Industry</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template if:true={accountsToDisplay}>
+                        <template for:each={accountsToDisplay} for:item="account">
+                            <tr key={account.Id}>
+                                <td>{account.Name}</td>
+                                <td>{account.Industry}</td>
+                            </tr>
+                        </template>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <div style="margin: 20px;">
+            <lightning-button 
+                variant="brand" 
+                label="Fetch Contacts" 
+                onclick={handleContactsClick}>
+            </lightning-button>&nbsp;
+            <lightning-button 
+                variant="brand" 
+                label="Fetch Opportunities" 
+                onclick={handleOpportunitiesClick}>
+            </lightning-button>
+        </div>
+
+        <template if:true={relatedContacts}>
+            <div style="margin: 20px;">
+                <h3>Related Contacts</h3>
+                <table border="1" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Contact Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={relatedContacts} for:item="contact">
+                            <tr key={contact.Id}>
+                                <td>{contact.Name}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+
+        <template if:true={relatedOpportunities}>
+            <div style="margin: 20px;">
+                <h3>Related Opportunities</h3>
+                <table border="1" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Opportunity Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={relatedOpportunities} for:item="opportunity">
+                            <tr key={opportunity.Id}>
+                                <td>{opportunity.Name}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+    </lightning-card>
+</template>

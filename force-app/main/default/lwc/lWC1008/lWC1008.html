@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Create New Event">
+        <div style = "margin-right:20px; margin-left:20px" class="slds-p-around_medium">
+            <lightning-input label="Event Subject" value={subject} onchange={handleInputChange} data-id="subject"></lightning-input>
+
+            <lightning-input type="date" label="Start Date" value={startDate} onchange={handleInputChange} data-id="startDate"></lightning-input>
+
+            <lightning-input type="date" label="End Date" value={endDate} onchange={handleInputChange} data-id="endDate"></lightning-input><br>
+
+            <lightning-button label="Save Event" onclick={handleSave} class="slds-m-top_medium"></lightning-button>
+
+            <template if:true={successMessage}>
+                <div class="slds-text-color_success slds-m-top_medium">
+                    Event created successfully! Event Date: {eventDate} to {endDate}
+                </div>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-top_medium">
+                    Error: {errorMessage}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

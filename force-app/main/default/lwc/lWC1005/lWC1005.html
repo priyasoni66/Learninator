@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Accounts" icon-name="standard:account">
+        <div slot="actions" class="slds-text-align_right">
+            <lightning-button label="Delete Selected Accounts" variant="destructive" onclick={handleDelete}>
+            </lightning-button>
+        </div>
+        <template if:true={accounts.length}>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Industry</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={accounts} for:item="account">
+                        <tr key={account.Id}>
+                            <td>
+                                <lightning-input type="checkbox" data-id={account.Id} checked={account.selected}
+                                    onchange={handleCheckboxChange}>
+                                </lightning-input>
+                            </td>
+                            <td>{account.Name}</td>
+                            <td>{account.Industry}</td>
+                            <td>{account.Phone}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+        <template if:false={accounts.length}>
+            <p>No accounts found.</p>
+        </template>
+    </lightning-card>
+</template>

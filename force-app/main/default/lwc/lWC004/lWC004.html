@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+        <p style="margin-left:20px"><b>Team: {team}</b></p><br>
+        <div style="margin-left:20px; margin-right:20px">
+            <h2>Team Members</h2>
+            <template for:each={teamMembers} for:item="member">
+                <div key={member.name} class="member">
+                    <h3>Name: {member.name}</h3>
+                    <p>Skills:</p>
+                    <ul>
+                        <template for:each={member.skills} for:item="skill">
+                            <li key={skill}>{skill}</li>
+                        </template>
+                    </ul>
+                    <lightning-input type="text" placeholder="Add a new skill" data-name={member.name}
+                        onchange={handleInputChange}></lightning-input>
+                    <lightning-button label="Add Skill" data-name={member.name} onclick={addSkill}></lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

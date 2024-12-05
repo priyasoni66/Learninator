@@ -1,0 +1,220 @@
+<template>
+    <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none"
+        style="background-color: white;">
+        <p class="slds-p-horizontal_small" style="text-align: center; font-size: 24px; margin-top: 20px;">
+            <b>New Contact</b>
+        </p>
+
+        <hr style="height: 2px; background-color: grey; border: none; margin: 20px 0;">
+
+
+        <p class="slds-p-horizontal_small" style="text-align: right; margin-bottom: 20px;">* = Required Information</p>
+        <div
+            style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px;">
+            <p class="slds-p-horizontal_small" style="margin: 0; font-size: 18px"><b>Contact Information 1</b></p>
+        </div>
+
+
+        <lightning-layout>
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+
+                <p class="slds-p-horizontal_small">Contact Owner</p>
+                <p class="slds-p-horizontal_small">Priya Soni</p>
+
+                <p class="slds-p-horizontal_small"><b>* Name</b></p>
+
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-combobox name="Salutation" label="Salutation" placeholder="--None--"
+                        value={contactData.salutation} options={salutations} onchange={handleInputChange}>
+                    </lightning-combobox>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" placeholder="First Name" label="First Name" name="firstName"
+                            value={contactData.firstName} onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" placeholder="Last Name" label="* Last Name" name="lastName"
+                            value={contactData.lastName} onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="search" label="Account Name" placeholder="Search Accounts..."
+                            name="accountName" value={contactData.accountName} onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Title" name="title" value={contactData.title}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Department" name="department" value={contactData.department}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="date" label="Birthdate" name="birthdate" value={contactData.birthdate}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="search" label="Report To" placeholder="Search Contacts..."
+                            name="reportTo" value={contactData.contactName} onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-combobox name="Lead Sources" label="Lead Sources" placeholder="--None--"
+                        value={contactData.leadSource} options={leadSources} onchange={handleInputChange}>
+                    </lightning-combobox>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Status" name="status" value={contactData.status}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Usage" name="usage" value={contactData.usage}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout-item>
+            </lightning-layout-item>
+
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Phone" name="Phone" value={contactData.phone}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Mobile" name="Mobile" value={contactData.mobile}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="email" name="email" value={contactData.email}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Assistant" name="assistnat" value={contactData.assistant}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Ass. Phone" name="Ass. Phone" value={contactData.assistantPhone}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout-item>
+
+
+
+
+        </lightning-layout>
+
+
+        <div
+            style="background-color: #DEEFF5; height: 50px; display: flex; align-items: center; justify-content: left; padding: 0 10px;">
+            <p class="slds-p-horizontal_small" style="margin: 0; font-size: 18px"><b>Contact Information 2</b></p>
+        </div>
+
+        <lightning-layout>
+
+
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+
+                <p class="slds-p-horizontal_small">Contact Owner</p>
+                <p class="slds-p-horizontal_small">Priya Soni</p>
+
+                <p class="slds-p-horizontal_small"><b>* Name</b></p>
+
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+
+                    <lightning-combobox name="Salutation" label="Salutation" placeholder="--None--"
+                        value={contactData1.salutation} options={salutations} onchange={handleInputChange}>
+                    </lightning-combobox>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" placeholder="First Name" label="First Name" name="firstName"
+                            value={contactData1.firstName} onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" placeholder="Last Name" label="* Last Name" name="lastName"
+                            value={contactData1.lastName} onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="search" label="Account Name" placeholder="Search Accounts..."
+                            name="accountName" value={contactData1.accountName} onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Title" name="title" value={contactData1.title}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Department" name="department"
+                            value={contactData1.department} onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="date" label="Birthdate" name="birthdate" value={contactData1.birthdate}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="search" label="Report To" placeholder="Search Contacts..."
+                            name="reportTo" value={contactData1.contactName} onchange={handleInputChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-combobox name="Lead Sources" label="Lead Sources" placeholder="--None--"
+                        value={contactData1.leadSource} options={leadSources} onchange={handleInputChange}>
+                    </lightning-combobox>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Status" name="status" value={contactData1.status}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                        <lightning-input type="text" label="Usage" name="usage" value={contactData1.usage}
+                            onchange={handleInputChange}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout-item>
+            </lightning-layout-item>
+
+
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Phone" name="Phone" value={contactData1.phone}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Mobile" name="Mobile" value={contactData1.mobile}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="email" name="email" value={contactData1.email}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Assistant" name="assistnat" value={contactData1.assistant}
+                        onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="6">
+                    <lightning-input type="text" label="Ass. Phone" name="Ass. Phone"
+                        value={contactData1.assistantPhone} onchange={handleInputChange}></lightning-input>
+                </lightning-layout-item>
+                <div>
+                    <lightning-button label="Sort Contacts" onclick={sortContacts}>
+                    </lightning-button>
+                </div>
+
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+        
+    </div>
+</template>

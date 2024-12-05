@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Contact Records">
+        <template for:each={contactObjList} for:item="contact">
+            <div style= "margin-left:20px" key={contact.mobileNumber}>
+                <p>{contact.firstName} {contact.lastName}</p>
+                <p>{contact.title}</p>
+                <p>{contact.mobileNumber}</p>
+            </div>
+        </template><br>
+        <div style="margin-left:20px; margin-right:20px">
+            <table border="1" style="width:100%" class="slds-table slds-table_bordered slds-table_striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Title</th>
+                    <th>Mobile Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={visibleContactList} for:item="contact">
+                    <tr key={contact.mobileNumber}>
+                        <td>{contact.firstName}</td>
+                        <td>{contact.lastName}</td>
+                        <td>{contact.title}</td>
+                        <td>{contact.mobileNumber}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        </div><br>
+        <div style="margin-left:20px"> 
+            <button onclick={handleClick}>Hide Record</button>
+        </div>
+    </lightning-card>
+</template>

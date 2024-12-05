@@ -1,0 +1,47 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+            <p style="size:50"><strong>Project:</strong> {projectData.project}</p><br>
+            <template if:true={projectData.tasks}>
+                <template for:each={projectData.tasks} for:item="task">
+                    <div key={task.id} class="slds-box slds-theme_default slds-m-bottom_small">
+                        <lightning-button label={task.name} variant="base" class="slds-m-bottom_small"
+                            onclick={toggleTaskDetails} data-id={task.id}>
+                        </lightning-button>
+                        <template if:true={task.expanded}>
+                            <div class="slds-m-left_large">
+                                <p><strong>Assignees:</strong>
+                                    <span>&nbsp;{task.assignees}</span>
+                                    <lightning-input label="Add Assignee" value={newAssignee}
+                                        onchange={handleAssigneeInputChange} class="slds-m-left_small">
+                                    </lightning-input>
+                                    <lightning-button label="Add Assignee" onclick={addAssignee}
+                                        class="slds-m-left_small" data-id={task.id}></lightning-button>
+                                    <lightning-button label="Remove Assignee" onclick={removeAssignee}
+                                        class="slds-m-left_small" data-id={task.id}></lightning-button>
+                                </p>
+                                <p><strong>Status:</strong>
+                                    <lightning-combobox value={task.status} options={statusOptions}
+                                        onchange={handleStatusChange} data-id={task.id}>
+                                    </lightning-combobox>
+                                </p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <div class="slds-m-top_medium">
+                    <lightning-input label="Task Name" value={newTask.name} onchange={handleInputChange} data-id="name">
+                    </lightning-input>
+                    <lightning-input label="Assignees (comma-separated)" value={newTask.assignees}
+                        onchange={handleInputChange} data-id="assignees">
+                    </lightning-input>
+                    <lightning-combobox label="Status" value={newTask.status} options={statusOptions}
+                        onchange={handleInputChange} data-id="status">
+                    </lightning-combobox>
+                    <lightning-button label="Add Task" variant="brand" class="slds-m-top_small" onclick={addTask}>
+                    </lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <lightning-card>
+        <div style="margin-left:20px; margin-right:20px">
+            <lightning-input 
+                type="text" 
+                label="Search Accounts" 
+                placeholder="Enter account name..." 
+                value={searchKey} 
+                onchange={handleSearch}>
+            </lightning-input>
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Industry</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={accountsToDisplay} for:item="account">
+                    <tr key={account.Id}>
+                        <td>{account.Name}</td>
+                        <td>{account.Industry}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        </div>
+    </lightning-card>
+</template>
